@@ -61,4 +61,27 @@ public class CarroDAO {
         }
         return cs;
     }
+
+    public static ArrayList<Carro> searchCarroMecanico(int search) {
+        ArrayList<Carro> cs = new ArrayList<>();
+        String sql = "SELECT codigo,cod_cliente,marca,modelo,tipo,placa FROM carro WHERE codigo LIKE " + search;
+        ResultSet rs = ConexaoBD.consultar(sql);
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    int codCliente = rs.getInt(2);
+                    String marca = rs.getString(3);
+                    String modelo = rs.getString(4);
+                    String tipo = rs.getString(5);
+                    String placa = rs.getString(6);
+                    Carro c = new Carro(codCliente, tipo, modelo, placa, marca);
+                    c.setCodigo(rs.getInt(1));
+                    cs.add(c);
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
+        return cs;
+    }
 }

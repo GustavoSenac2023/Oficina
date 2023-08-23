@@ -5,6 +5,7 @@
  */
 package oficina.controller;
 
+import java.util.ArrayList;
 import oficina.model.Carro;
 
 /**
@@ -19,5 +20,15 @@ public class CarroController {
             return true;
         }
         return false;
+    }
+    public ArrayList<Carro> searchC(int codigo){
+        return new Carro().searchC(codigo);
+    }
+    public ArrayList<Carro> getC(){
+        return new Carro().getCarro();
+    }
+
+    public void editC(Carro cr) {
+        new Carro().editCarro(cr);
     }
 }

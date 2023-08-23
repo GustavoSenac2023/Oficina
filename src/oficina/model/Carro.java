@@ -92,4 +92,16 @@ public class Carro {
        new CarroDAO().cad(c);
     }
     
+    public ArrayList<Carro> searchC(int codigo){
+        return CarroDAO.searchCarroMecanico(codigo);
+    }
+
+    public ArrayList<Carro> getCarro() {
+        return CarroDAO.getCarros();
+    }
+
+    public void editCarro(Carro cr) {
+        new CarroDAO().edit(cr);
+    }
+    
 }
