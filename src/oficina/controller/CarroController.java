@@ -31,4 +31,8 @@ public class CarroController {
     public void editC(Carro cr) {
         new Carro().editCarro(cr);
     }
+
+    public void delC(int c) {
+        new Carro().delCarro(c);
+    }
 }

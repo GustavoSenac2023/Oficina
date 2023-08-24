@@ -7,6 +7,7 @@
 package oficina.view;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import oficina.controller.CarroController;
@@ -144,15 +145,35 @@ public class Lista_Carro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        String codCliente =  JOptionPane.showInputDialog("Insira o codigo do cliente");
+        String marca =JOptionPane.showInputDialog("Insira a marca");
+        String tipo=JOptionPane.showInputDialog("Insira o tipo");
+        String placa=JOptionPane.showInputDialog("Insira a placa");
+        String modelo=JOptionPane.showInputDialog("Insira o modelo");
+        CarroController cc = new CarroController();
+        cc.validaCarro(Integer.parseInt(codCliente), tipo, marca, modelo, placa);
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
-        // TODO add your handling code here:
+        String cod = JOptionPane.showInputDialog("Insira o id");
+        int c=Integer.parseInt(cod);
+        CarroController cc= new CarroController();
+        cc.delC(c);
     }//GEN-LAST:event_btnDelActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
+        String cod = JOptionPane.showInputDialog("Insira o id");
+        int c=Integer.parseInt(cod);
+        String codCliente =  JOptionPane.showInputDialog("Insira o codigo do cliente para alterar");
+        String marca =JOptionPane.showInputDialog("Insira a marca para alterar");
+        String tipo=JOptionPane.showInputDialog("Insira o tipo para alterar");
+        String placa=JOptionPane.showInputDialog("Insira a placa para alterar");
+        String modelo=JOptionPane.showInputDialog("Insira o modelo para alterar");
+        Carro cr = new Carro(Integer.parseInt(codCliente), tipo, modelo, placa, marca);
+        cr.setCodigo(c);
+        CarroController cc= new CarroController();
+        cc.editC(cr);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed

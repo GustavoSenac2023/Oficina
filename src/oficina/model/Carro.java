@@ -103,5 +103,9 @@ public class Carro {
     public void editCarro(Carro cr) {
         new CarroDAO().edit(cr);
     }
+
+    public void delCarro(int c) {
+        CarroDAO.exc(c);
+    }
     
 }
